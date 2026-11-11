@@ -6,59 +6,81 @@ import 'package:video_player/video_player.dart';
 // Asset Arrays — รูปและ VDO ทั้งหมดเก็บแบบ Array
 // ============================================================
 
-/// รูปภาพท่าทางผู้ป่วย (ตำแหน่งที่มักเกิดแผลกดทับ)
-const List<Map<String, String>> kPositionImages = [
+/// ข้อมูลตำแหน่งท่าทางผู้ป่วยและรูปภาพ
+const List<Map<String, String>> kPositionItems = [
   {
+    'title': '1. ท่านอนหงาย',
+    'desc':
+        'มักเกิดบริเวณส้นเท้า ก้นกบ กระดูกสันหลัง ข้อศอก สะบัก และท้ายทอย',
     'asset': 'Asset/JPG/knowledge/position_supine.png',
-    'label': '1. ท่านอนหงาย',
   },
   {
+    'title': '2. ท่านอนตะแคง',
+    'desc':
+        'มักเกิดบริเวณนิ้วเท้า ตาตุ่มด้านในและด้านนอก สะโพกด้านข้าง ซี่โครง ไหล่ และใบหู',
     'asset': 'Asset/JPG/knowledge/position_side.png',
-    'label': '2. ท่านอนตะแคง',
   },
   {
+    'title': '3. ท่านอนคว่ำ',
+    'desc':
+        'มักเกิดบริเวณนิ้วเท้า หัวเข่า อวัยวะเพศชาย เต้านม และแก้มหรือใบหู',
     'asset': 'Asset/JPG/knowledge/position_prone.png',
-    'label': '3. ท่านอนคว่ำ',
   },
   {
+    'title': '4. ท่านั่งบนรถเข็น',
+    'desc':
+        'มักเกิดบริเวณหัวไหล่ ข้อศอก หลังส่วนล่าง กระดูกก้นหรือสะโพก และส้นเท้า เนื่องจากเป็นจุดที่รับแรงกดจากพนักพิง เบาะนั่ง และที่วางเท้า',
     'asset': 'Asset/JPG/knowledge/position_wheelchair.png',
-    'label': '4. ท่านั่งบนรถเข็น',
   },
 ];
 
-/// รูปภาพระดับความรุนแรงของแผลกดทับ
-const List<Map<String, String>> kSeverityImages = [
+/// ข้อมูลระดับความรุนแรงของแผลกดทับ พร้อมรูปภาพแต่ละระดับ
+const List<Map<String, String>> kSeverityItems = [
   {
+    'title': 'แผลกดทับระดับ 1',
+    'desc':
+        'ผิวหนังยังไม่ฉีกขาด แต่มีรอยแดงเฉพาะบริเวณ ซึ่งไม่จางลงเมื่อใช้นิ้วกด ในผู้ที่มีผิวคล้ำอาจสังเกตได้จากสีผิว อุณหภูมิ หรือความแข็งของผิวหนังที่เปลี่ยนแปลง รวมถึงการรับความรู้สึกที่ผิดปกติ',
     'asset': 'Asset/JPG/knowledge/stage_1.png',
-    'label': 'แผลกดทับระดับ 1',
   },
   {
+    'title': 'แผลกดทับระดับ 2',
+    'desc':
+        'ผิวหนังถลอกหรือหลุดลอกบางส่วนจนเห็นชั้นหนังแท้ แผลมีสีชมพูหรือแดงและชุ่มชื้น อาจพบตุ่มน้ำใสหรือตุ่มน้ำแตก โดยไม่มีเนื้อตาย',
     'asset': 'Asset/JPG/knowledge/stage_2.png',
-    'label': 'แผลกดทับระดับ 2',
   },
   {
+    'title': 'แผลกดทับระดับ 3',
+    'desc':
+        'ผิวหนังถูกทำลายจนเห็นชั้นไขมันใต้ผิวหนัง แผลมีความลึก อาจพบเนื้อเยื่อสีแดง เนื้อตาย หรือมีโพรงใต้ขอบแผลร่วมด้วย',
     'asset': 'Asset/JPG/knowledge/stage_3.png',
-    'label': 'แผลกดทับระดับ 3',
   },
   {
+    'title': 'แผลกดทับระดับ 4',
+    'desc':
+        'ผิวหนังและเนื้อเยื่อถูกทำลายลึกจนเห็นกล้ามเนื้อ เส้นเอ็น หรือกระดูก อาจมีเนื้อตายและโพรงแผลร่วมด้วย เป็นแผลกดทับที่มีความรุนแรงมากที่สุด',
     'asset': 'Asset/JPG/knowledge/stage_4.png',
-    'label': 'แผลกดทับระดับ 4',
   },
 ];
 
-/// รูปภาพแผลกดทับประเภทพิเศษ
-const List<Map<String, String>> kSpecialImages = [
+/// ข้อมูลแผลกดทับประเภทพิเศษ พร้อมรูปภาพแต่ละประเภท
+const List<Map<String, String>> kSpecialItems = [
   {
+    'title': 'แผลกดทับที่ไม่สามารถระบุระดับได้',
+    'desc':
+        'แผลมีเนื้อเยื่อตายสีเหลืองหรือสีดำปกคลุม ทำให้ไม่สามารถประเมินความลึกของแผลได้ หากพบเนื้อตายแห้งแข็งบริเวณส้นเท้า ห้ามทำให้อ่อนตัวหรือตัดออก',
     'asset': 'Asset/JPG/knowledge/stage_unstageable.png',
-    'label': 'แผลกดทับที่ไม่สามารถระบุระดับได้',
   },
   {
+    'title': 'แผลกดทับที่มีการบาดเจ็บเนื้อเยื่อชั้นลึก',
+    'desc':
+        'ผิวหนังอาจยังไม่ฉีกขาดหรือเกิดแผลแล้ว พบผิวหนังเปลี่ยนเป็นสีแดงคล้ำ สีม่วง หรือมีตุ่มน้ำที่มีเลือดอยู่ภายใน โดยรอยแดงไม่จางลงเมื่อใช้นิ้วกด',
     'asset': 'Asset/JPG/knowledge/stage_deep_tissue.png',
-    'label': 'แผลกดทับที่มีการบาดเจ็บเนื้อเยื่อชั้นลึก',
   },
   {
+    'title': 'แผลกดทับที่เกิดจากอุปกรณ์ทางการแพทย์',
+    'desc':
+        'แผลกดทับอาจมีรูปร่างคล้ายอุปกรณ์ที่กดทับผิวหนัง โดยแผลบริเวณเยื่อบุ (Mucosal membrane) ไม่สามารถระบุระดับได้ ให้เรียกว่าแผลกดทับบริเวณเยื่อบุ',
     'asset': 'Asset/JPG/knowledge/stage_medical_device.png',
-    'label': 'แผลกดทับที่เกิดจากอุปกรณ์ทางการแพทย์',
   },
 ];
 
@@ -138,14 +160,15 @@ class Page1Knowledge extends StatelessWidget {
             'แผลกดทับมักเกิดบริเวณปุ่มกระดูกหรือส่วนของร่างกายที่สัมผัสกับที่นอนและอุปกรณ์ต่าง ๆ '
             'เป็นเวลานาน โดยตำแหน่งที่เกิดแผลจะแตกต่างกันตามท่าทางของผู้ป่วย ดังนี้',
           ),
-          const SizedBox(height: 8),
-          ...kPositionImages.map((img) => _buildImageCard(img)),
-          _buildParagraph(
-            '• ท่านอนหงาย — มักเกิดบริเวณส้นเท้า ก้นกบ กระดูกสันหลัง ข้อศอก สะบัก และท้ายทอย\n'
-            '• ท่านอนตะแคง — มักเกิดบริเวณนิ้วเท้า ตาตุ่มด้านในและด้านนอก สะโพกด้านข้าง ซี่โครง ไหล่ และใบหู\n'
-            '• ท่านอนคว่ำ — มักเกิดบริเวณนิ้วเท้า หัวเข่า อวัยวะเพศชาย เต้านม และแก้มหรือใบหู\n'
-            '• ท่านั่งบนรถเข็น — มักเกิดบริเวณหัวไหล่ ข้อศอก หลังส่วนล่าง กระดูกก้นหรือสะโพก และส้นเท้า',
-          ),
+          const SizedBox(height: 12),
+
+          // แสดงแต่ละท่า พร้อมรูปภาพใต้ข้อความโดยตรง
+          ...kPositionItems.map((pos) => _buildTopicWithImage(
+                title: pos['title']!,
+                desc: pos['desc']!,
+                assetPath: pos['asset']!,
+              )),
+
           _buildWarningBox(
             'ข้อควรระวัง',
             'ผู้ดูแลควรตรวจสอบผิวหนังบริเวณปุ่มกระดูกและจุดสัมผัสกับอุปกรณ์ต่าง ๆ อย่างสม่ำเสมอ '
@@ -173,50 +196,27 @@ class Page1Knowledge extends StatelessWidget {
 
           // ==================== หัวข้อ 5 ====================
           _buildSectionHeader('5. ระดับความรุนแรงของแผลกดทับ'),
-          const SizedBox(height: 8),
-          ...kSeverityImages.map((img) => _buildImageCard(img)),
+          _buildParagraph(
+            'การประเมินระดับความรุนแรงของแผลกดทับตามลักษณะการบาดเจ็บของชั้นผิวหนังและเนื้อเยื่อ:',
+          ),
+          const SizedBox(height: 12),
 
-          _buildSubSection('แผลกดทับระดับ 1'),
-          _buildParagraph(
-            'ผิวหนังยังไม่ฉีกขาด แต่มีรอยแดงเฉพาะบริเวณ ซึ่งไม่จางลงเมื่อใช้นิ้วกด '
-            'ในผู้ที่มีผิวคล้ำอาจสังเกตได้จากสีผิว อุณหภูมิ หรือความแข็งของผิวหนังที่เปลี่ยนแปลง '
-            'รวมถึงการรับความรู้สึกที่ผิดปกติ',
-          ),
-          _buildSubSection('แผลกดทับระดับ 2'),
-          _buildParagraph(
-            'ผิวหนังถลอกหรือหลุดลอกบางส่วนจนเห็นชั้นหนังแท้ แผลมีสีชมพูหรือแดงและชุ่มชื้น '
-            'อาจพบตุ่มน้ำใสหรือตุ่มน้ำแตก โดยไม่มีเนื้อตาย',
-          ),
-          _buildSubSection('แผลกดทับระดับ 3'),
-          _buildParagraph(
-            'ผิวหนังถูกทำลายจนเห็นชั้นไขมันใต้ผิวหนัง แผลมีความลึก อาจพบเนื้อเยื่อสีแดง '
-            'เนื้อตาย หรือมีโพรงใต้ขอบแผลร่วมด้วย',
-          ),
-          _buildSubSection('แผลกดทับระดับ 4'),
-          _buildParagraph(
-            'ผิวหนังและเนื้อเยื่อถูกทำลายลึกจนเห็นกล้ามเนื้อ เส้นเอ็น หรือกระดูก '
-            'อาจมีเนื้อตายและโพรงแผลร่วมด้วย เป็นแผลกดทับที่มีความรุนแรงมากที่สุด',
-          ),
+          // แต่ละระดับความรุนแรง (ระดับ 1 ถึง ระดับ 4) แสดงข้อความแล้วใส่รูปภาพล่างสุดของแต่ละระดับ
+          ...kSeverityItems.map((item) => _buildTopicWithImage(
+                title: item['title']!,
+                desc: item['desc']!,
+                assetPath: item['asset']!,
+              )),
 
-          const Divider(height: 32),
+          const Divider(height: 36, thickness: 1.5),
 
-          ...kSpecialImages.map((img) => _buildImageCard(img)),
+          // แผลกดทับประเภทพิเศษ แสดงข้อความแล้วใส่รูปภาพล่างสุดของแต่ละประเภท
+          ...kSpecialItems.map((item) => _buildTopicWithImage(
+                title: item['title']!,
+                desc: item['desc']!,
+                assetPath: item['asset']!,
+              )),
 
-          _buildSubSection('แผลกดทับที่ไม่สามารถระบุระดับได้'),
-          _buildParagraph(
-            'แผลมีเนื้อเยื่อตายสีเหลืองหรือสีดำปกคลุม ทำให้ไม่สามารถประเมินความลึกของแผลได้ '
-            'หากพบเนื้อตายแห้งแข็งบริเวณส้นเท้า ห้ามทำให้อ่อนตัวหรือตัดออก',
-          ),
-          _buildSubSection('แผลกดทับที่มีการบาดเจ็บเนื้อเยื่อชั้นลึก'),
-          _buildParagraph(
-            'ผิวหนังอาจยังไม่ฉีกขาดหรือเกิดแผลแล้ว พบผิวหนังเปลี่ยนเป็นสีแดงคล้ำ สีม่วง '
-            'หรือมีตุ่มน้ำที่มีเลือดอยู่ภายใน โดยรอยแดงไม่จางลงเมื่อใช้นิ้วกด',
-          ),
-          _buildSubSection('แผลกดทับที่เกิดจากอุปกรณ์ทางการแพทย์'),
-          _buildParagraph(
-            'แผลกดทับอาจมีรูปร่างคล้ายอุปกรณ์ที่กดทับผิวหนัง โดยแผลบริเวณเยื่อบุ (Mucosal membrane) '
-            'ไม่สามารถระบุระดับได้ ให้เรียกว่าแผลกดทับบริเวณเยื่อบุ',
-          ),
           const SizedBox(height: 24),
 
           // ==================== หัวข้อ 6 ====================
@@ -245,6 +245,57 @@ class Page1Knowledge extends StatelessWidget {
 
   // ============ UI Helper Widgets ============
 
+  /// Widget แสดงหัวข้อย่อย + ข้อความอธิบาย + รูปภาพด้านล่างสุดของแต่ละหัวข้อ
+  static Widget _buildTopicWithImage({
+    required String title,
+    required String desc,
+    required String assetPath,
+  }) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(14),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(color: Colors.blue.shade100),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(alpha: 0.03),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF1565C0),
+            ),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            desc,
+            style: const TextStyle(fontSize: 14.5, height: 1.55),
+          ),
+          const SizedBox(height: 12),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              assetPath,
+              fit: BoxFit.contain,
+              width: double.infinity,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   static Widget _buildSectionHeader(String text) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
@@ -254,20 +305,6 @@ class Page1Knowledge extends StatelessWidget {
           fontSize: 20,
           fontWeight: FontWeight.bold,
           color: Color(0xFF1565C0),
-        ),
-      ),
-    );
-  }
-
-  static Widget _buildSubSection(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 12, bottom: 4),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontSize: 17,
-          fontWeight: FontWeight.w600,
-          color: Color(0xFF1976D2),
         ),
       ),
     );
