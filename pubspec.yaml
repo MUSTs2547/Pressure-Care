@@ -1,0 +1,43 @@
+name: app
+description: "Pressure Care Application"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  video_player: ^2.14.1
+  video_player_win: ^3.3.1
+  chewie: ^1.17.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "Asset/icon/app_icon.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "Asset/icon/app_icon.png"
+  windows:
+    generate: true
+    image_path: "Asset/icon/app_icon.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - Asset/JPG/knowledge/
+    - Asset/JPG/nutrition/
+    - Asset/VDO/knowledge/
+    - Asset/VDO/care/
+    - Asset/icon/
